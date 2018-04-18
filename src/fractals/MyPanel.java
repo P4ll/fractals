@@ -18,7 +18,7 @@ public class MyPanel extends JPanel {
 		paintPoint(g, begPoint);
 		
 		Random rand = new Random();
-		for (int i = 0; i < 1 << 20; i++) {
+		for (int i = 0; i < 1 << 3; i++) {
 			int r = Math.abs(1 + rand.nextInt() % 3);
 			System.out.print(r + " ");
 			switch(r) {
