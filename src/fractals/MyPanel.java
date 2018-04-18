@@ -20,7 +20,7 @@ public class MyPanel extends JPanel {
 		Random rand = new Random();
 		for (int i = 0; i < 1 << 3; i++) {
 			int r = Math.abs(1 + rand.nextInt() % 3);
-			System.out.print(r + " ");
+			//System.out.print(r + " ");
 			switch(r) {
 			case 1:
 				begPoint.setX(Math.abs(begPoint.getX() - a.getX()) / 2 + min(begPoint.getX(), a.getX()));

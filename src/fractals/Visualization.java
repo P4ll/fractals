@@ -66,16 +66,33 @@ public class Visualization {
 				angleCount = Integer.parseInt(angleCountField.getText());
 				Thread inputWindow = new Thread(new Runnable() {
 					private JFrame fr;
+					private JTextField tf[] = new JTextField[angleCount << 1];
+					private JLabel jl[] = new JLabel[angleCount << 1];
+					private int _x = 10;
+					private int _y = 10;
 					@Override
 					public void run() {
 						fr = new JFrame();
-						fr.setBounds(100, 100, 520, 430);
+						fr.setBounds(100, 100, 520, 1030);
 						fr.getContentPane().setLayout(null);
 						fr.setVisible(true);
+						
+						for (int i = 0; i < angleCount << 1; i += 2) {
+							tf[i] = new JTextField();
+							tf[i].setBounds(_x, _y + i * 30, 86, 20);
+							fr.getContentPane().add(tf[i]);
+							tf[i].setColumns(10);
+							
+							tf[i + 1] = new JTextField();
+							tf[i + 1].setBounds(_x, _y + (i + 1) * 30, 86, 20);
+							fr.getContentPane().add(tf[i + 1]);
+							tf[i + 1].setColumns(10);
+						}
 					}
 					
 				});
 				inputWindow.setName("inputWindow Thread");
+				inputWindow.setDaemon(true);
 				inputWindow.start();
 			}
 		});
