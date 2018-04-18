@@ -52,6 +52,7 @@ public class Visualization {
 		frame.getContentPane().add(panel);
 		
 		angleCountField = new JTextField();
+		angleCountField.setToolTipText("");
 		angleCountField.setBounds(92, 11, 86, 20);
 		frame.getContentPane().add(angleCountField);
 		angleCountField.setColumns(10);
@@ -67,6 +68,7 @@ public class Visualization {
 				Thread inputWindow = new Thread(new Runnable() {
 					private JFrame fr;
 					private JTextField tf[] = new JTextField[angleCount << 1];
+					private JButton jb, jbUseDef;
 					private JLabel jl[] = new JLabel[angleCount << 1];
 					private int _x = 10;
 					private int _y = 10;
@@ -76,6 +78,14 @@ public class Visualization {
 						fr.setBounds(100, 100, 520, 1030);
 						fr.getContentPane().setLayout(null);
 						fr.setVisible(true);
+						
+						jb = new JButton("\u0412\u0432\u043e\u0434");
+						jb.setBounds(100, 10, 84, 22);
+						fr.getContentPane().add(jb);
+						
+						jbUseDef = new JButton("\u0421\u0442\u0430\u043d\u0434\u0430\u0440\u0442");
+						jbUseDef.setBounds(184, 10, 84, 22);
+						fr.getContentPane().add(jbUseDef);
 						
 						for (int i = 0; i < angleCount << 1; i += 2) {
 							tf[i] = new JTextField();
